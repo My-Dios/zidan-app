@@ -8,17 +8,26 @@ import { Component } from "@angular/core";
 export class ServerComponent{
     serverId: number = 1;
     serverStat: string = 'online';
-    //code yang ditambahkan
     allowNewServer: boolean = false;
+    serverCreationStat: string = 'No server created...';
+    serverName: string = 'anonymous ';
 
     constructor(){
       setTimeout(() => {
           {this.allowNewServer = true;}
       }, 3000);
     }
-    //akhir code yang ditambahkan
+
 
     getServerStat(){
         return this.serverStat;
+    }
+
+    onServerCreate(){
+      this.serverCreationStat = 'Server created...'
+    }
+
+    onUpdateNameServer(event : Event){
+      this.serverName = (<HTMLInputElement>event.target).value
     }
  }
