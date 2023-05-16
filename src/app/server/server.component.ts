@@ -10,7 +10,9 @@ export class ServerComponent{
     serverStat: string = 'online';
     allowNewServer: boolean = false;
     serverCreationStat: string = 'No server created...';
-    serverName: string = 'anonymous ';
+    //event binding with data
+    serverName: string = 'anonymous';
+    serverCreated: boolean = false;
 
     constructor(){
       setTimeout(() => {
@@ -24,10 +26,13 @@ export class ServerComponent{
     }
 
     onServerCreate(){
-      this.serverCreationStat = 'Server created...'
+      this.serverCreationStat = this.serverName + 'Server created...';
+      this.serverCreated = true;
     }
 
-    onUpdateNameServer(event : Event){
-      this.serverName = (<HTMLInputElement>event.target).value
-    }
+    //dapat dihapus jika menggunakan two-way binding
+    //event binding with data
+    // onUpdateNameServer(event : Event){
+    //     this.serverName = (<HTMLInputElement>event.target).value
+    // }
  }
